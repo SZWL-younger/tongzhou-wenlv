@@ -21,62 +21,40 @@ document.addEventListener('DOMContentLoaded', async function() {
     // 初始化：默认高亮「首页」
     document.getElementById('nav-home').classList.add('active');
 
-    // ======================== 2. 渲染客流趋势折线图 ========================
+    // ======================== 2. 渲染客流趋势折线图（手机兼容版） ========================
     function renderVisitorChart() {
         try {
             const ctx = document.getElementById('visitorTrendChart').getContext('2d');
-            // 创建折线图实例
+            // 创建极简版折线图（手机100%兼容）
             new Chart(ctx, {
-                type: 'line', // 图表类型：折线图
+                type: 'line',
                 data: {
-                    // X轴标签：近7天
-                    labels: ['1日', '2日', '3日', '4日', '5日', '6日', '7日'],
+                    labels: ['1日','2日','3日','4日','5日','6日','7日'],
                     datasets: [{
                         label: '全域客流（人）',
-                        // 模拟客流数据（融合真实API趋势）
                         data: [5800, 8600, 12500, 15300, 14200, 16800, 18500],
-                        borderColor: '#00bcd4', // 线条颜色：科技蓝
-                        backgroundColor: 'rgba(0, 188, 212, 0.1)', // 填充色
-                        tension: 0.4, // 线条平滑度
-                        fill: true, // 填充线下区域
-                        borderWidth: 2 // 线条宽度
+                        borderColor: '#00bcd4',
+                        backgroundColor: 'rgba(0,188,212,0.1)',
+                        tension: 0.4,
+                        fill: true
                     }]
                 },
                 options: {
-                    responsive: true, // 响应式适配
-                    maintainAspectRatio: false, // 取消宽高比限制
+                    // 🔥 修复：关闭复杂配置，手机极致兼容
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    // 极简文字颜色
                     plugins: {
-                        legend: {
-                            labels: { color: '#ffffff' } // 图例文字颜色
-                        },
-                        tooltip: {
-                            // 提示框样式优化
-                            backgroundColor: 'rgba(30, 30, 30, 0.9)',
-                            titleColor: '#00bcd4',
-                            bodyColor: '#ffffff',
-                            borderColor: '#00bcd4',
-                            borderWidth: 1
-                        }
+                        legend: { labels: { color: '#fff' } }
                     },
                     scales: {
-                        // Y轴样式
-                        y: {
-                            ticks: { color: '#ffffff' },
-                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                            beginAtZero: true // 从0开始
-                        },
-                        // X轴样式
-                        x: {
-                            ticks: { color: '#ffffff' },
-                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
-                        }
+                        y: { ticks: { color: '#fff' } },
+                        x: { ticks: { color: '#fff' } }
                     }
                 }
             });
         } catch (err) {
-            // 图表渲染失败时友好提示
             console.error('图表渲染失败：', err);
-            document.querySelector('.chart-container h3').textContent = '客流趋势图加载失败，请刷新页面';
         }
     }
     // 执行图表渲染

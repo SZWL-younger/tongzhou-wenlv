@@ -97,6 +97,8 @@ body {
     background-color: #1e1e1e;
     border-radius: 16px;
     border: 1px solid rgba(0, 188, 212, 0.3);
+    /* 🔥 修复：手机端强制最小高度，防止图表被隐藏 */
+    min-height: 350px !important;
 }
 
 .chart-container h3 {
@@ -106,10 +108,11 @@ body {
     margin-bottom: 20px;
 }
 
-/* 图表画布：强制适配容器宽度，固定高度 */
+/* 🔥 修复：手机端图表画布强制宽高，不压缩 */
 #visitorTrendChart {
     width: 100% !important;
     height: 300px !important;
+    display: block !important;
 }
 
 /* ======================== 景区卡片样式 ======================== */
