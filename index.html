@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 响应式核心：适配所有设备，设置视口缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>通州智慧文旅AI大数据平台 - 正式版</title>
+    <!-- 引入本地样式文件 -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 引入Chart.js图表库（CDN加速，降低本地依赖） -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 预加载本地图片，提升加载速度 -->
+    <link rel="preload" href="./images/universal.jpg" as="image">
+    <link rel="preload" href="./images/canal.jpg" as="image">
+</head>
+<body>
+    <!-- 导航栏模块：AI大数据平台核心入口 -->
+    <nav class="nav">
+        <ul>
+            <li><a href="#" id="nav-home" class="nav-item">首页</a></li>
+            <li><a href="#" id="nav-scenic" class="nav-item">景区导览</a></li>
+            <li><a href="#" id="nav-ticket" class="nav-item">门票预订</a></li>
+            <li><a href="#" id="nav-night" class="nav-item">夜经济</a></li>
+            <li><a href="#" id="nav-about" class="nav-item">关于我们</a></li>
+        </ul>
+    </nav>
+
+    <!-- 标题模块：突出平台定位 -->
+    <header class="title-section">
+        <h1>通州智慧文旅AI大数据平台</h1>
+        <p class="desc">
+            通州区文旅数据专区｜AI实时分析｜全域客流监测｜票根经济驱动
+            <span class="tag">官方授权 · 数据实时更新</span>
+        </p>
+    </header>
+
+    <!-- 数据可视化模块：全域客流趋势折线图 -->
+    <section class="chart-container">
+        <h3>通州全域景区近7日客流趋势（AI预测+真实数据融合）</h3>
+        <!-- Canvas画布：Chart.js渲染折线图 -->
+        <canvas id="visitorTrendChart"></canvas>
+    </section>
+
+    <!-- 景区卡片模块：展示核心景区，调用本地图片 -->
+    <section class="scenic-cards">
+        <!-- 环球影城卡片 -->
+        <div class="scenic-card" id="card-universal">
+            <!-- 本地图片：懒加载优化（loading="lazy"） -->
+            <img src="./images/universal.jpg" alt="北京环球影城" class="scenic-img" loading="lazy">
+            <div class="scenic-content">
+                <h3>北京环球影城</h3>
+                <a href="#ticket" class="ticket-link">门票预订</a>
+            </div>
+        </div>
+        <!-- 大运河森林公园卡片 -->
+        <div class="scenic-card" id="card-canal">
+            <img src="./images/canal.jpg" alt="大运河森林公园" class="scenic-img" loading="lazy">
+            <div class="scenic-content">
+                <h3>大运河森林公园</h3>
+                <a href="#ticket" class="ticket-link">门票预订</a>
+            </div>
+        </div>
+        <!-- 台湖公园卡片 -->
+        <div class="scenic-card" id="card-taihu">
+            <img src="./images/taihu.jpg" alt="台湖公园" class="scenic-img" loading="lazy">
+            <div class="scenic-content">
+                <h3>台湖公园</h3>
+                <a href="#ticket" class="ticket-link">门票预订</a>
+            </div>
+        </div>
+        <!-- 张家湾镇卡片 -->
+        <div class="scenic-card" id="card-zhangjiawan">
+            <img src="./images/zhangjiawan.jpg" alt="张家湾漕运文化" class="scenic-img" loading="lazy">
+            <div class="scenic-content">
+                <h3>张家湾镇（漕运文化）</h3>
+                <a href="#ticket" class="ticket-link">门票预订</a>
+            </div>
+        </div>
+        <!-- 台湖LiveHouse卡片 -->
+        <div class="scenic-card" id="card-livehouse">
+            <img src="./images/livehouse.jpg" alt="台湖LiveHouse" class="scenic-img" loading="lazy">
+            <div class="scenic-content">
+                <h3>台湖live house演艺集群</h3>
+                <a href="#ticket" class="ticket-link">门票预订</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据弹窗模块：点击卡片显示景区实时数据 -->
+    <div class="modal" id="data-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">&times;</span>
+            <h2 id="modal-title">景区AI数据看板</h2>
+            <div class="modal-data" id="modal-data"></div>
+        </div>
+    </div>
+
+    <!-- 引入本地交互文件：放在body末尾，确保DOM加载完成 -->
+    <script src="./js/index.js"></script>
+</body>
+</html>

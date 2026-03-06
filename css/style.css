@@ -1,0 +1,264 @@
+/* ======================== 全局基础样式 ======================== */
+/* 重置默认样式：统一盒模型，清除边距 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 禁止文字选中，提升科技风体验 */
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* 页面主体：Mac原生字体，深灰科技底色，适配暗黑模式 */
+body {
+    font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    background-color: #121212;
+    color: #fafafa;
+    padding: 0 20px 40px;
+    /* 防止页面滚动抖动 */
+    scroll-behavior: smooth;
+}
+
+/* ======================== 导航栏样式 ======================== */
+.nav {
+    background-color: #212121;
+    padding: 16px 30px;
+    margin: 0 -20px 30px;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.1);
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* 导航链接基础样式 */
+.nav-item {
+    color: #00bcd4;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+}
+
+/* 导航高亮样式：科技蓝发光+底部边框 */
+.nav-item.active {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 188, 212, 0.8);
+    border-bottom: 2px solid #00bcd4;
+}
+
+/* 导航hover交互：增强发光效果 */
+.nav-item:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 188, 212, 0.8);
+}
+
+/* ======================== 标题区域样式 ======================== */
+.title-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title-section h1 {
+    font-size: 28px;
+    color: #00bcd4;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
+    margin-bottom: 10px;
+}
+
+.desc {
+    color: #b0b0b0;
+    font-size: 15px;
+}
+
+/* 票根经济标签：半透明科技蓝，圆角设计 */
+.tag {
+    display: inline-block;
+    background-color: rgba(0, 188, 212, 0.2);
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-left: 10px;
+    border: 1px solid #00bcd4;
+}
+
+/* ======================== 图表容器样式 ======================== */
+.chart-container {
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+}
+
+.chart-container h3 {
+    text-align: center;
+    color: #00bcd4;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* 图表画布：强制适配容器宽度，固定高度 */
+#visitorTrendChart {
+    width: 100% !important;
+    height: 300px !important;
+}
+
+/* ======================== 景区卡片样式 ======================== */
+.scenic-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+/* 卡片基础样式：深灰底色，科技蓝边框，圆角 */
+.scenic-card {
+    width: 400px;
+    background-color: #1e1e1e;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* 卡片hover交互：上浮+科技蓝光晕 */
+.scenic-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
+    border-color: #00bcd4;
+}
+
+/* 卡片图片：固定尺寸，保持比例，懒加载 */
+.scenic-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    /* 图片加载过渡，提升体验 */
+    transition: opacity 0.5s ease;
+}
+
+.scenic-img:hover {
+    opacity: 0.95;
+}
+
+/* 卡片内容区域：内边距，排版优化 */
+.scenic-content {
+    padding: 20px;
+}
+
+.scenic-content h3 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+/* 门票按钮：科技蓝渐变，hover增强 */
+.ticket-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(90deg, #0097a7, #00bcd4);
+    color: #ffffff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.ticket-link:hover {
+    background: linear-gradient(90deg, #00796b, #0097a7);
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.6);
+}
+
+/* ======================== 弹窗样式 ======================== */
+/* 弹窗遮罩：全屏半透明黑，默认隐藏 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    /* 弹窗淡入动画 */
+    transition: opacity 0.3s ease;
+}
+
+/* 弹窗内容：居中，科技风样式 */
+.modal-content {
+    background-color: #1e1e1e;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 16px;
+    border: 2px solid #00bcd4;
+    box-shadow: 0 0 30px rgba(0, 188, 212, 0.5);
+}
+
+/* 关闭按钮：右上角×，hover变红发光 */
+.close-btn {
+    color: #b0b0b0;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #ff4444;
+    text-shadow: 0 0 8px rgba(255, 68, 68, 0.8);
+}
+
+/* 弹窗标题：科技蓝，居中 */
+.modal-content h2 {
+    color: #00bcd4;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 弹窗数据：行高优化，易读 */
+.modal-data {
+    line-height: 2;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* ======================== 响应式适配 ======================== */
+/* Mac笔记本/平板（768-1200px） */
+@media (max-width: 1200px) and (min-width: 768px) {
+    .nav ul { gap: 20px; }
+    .title-section h1 { font-size: 24px; }
+    .scenic-card { width: 350px; }
+    .scenic-content h3 { font-size: 17px; }
+}
+
+/* 手机（＜768px） */
+@media (max-width: 768px) {
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .nav { padding: 10px 20px; }
+    .title-section h1 { font-size: 20px; }
+    .desc { font-size: 13px; padding: 0 10px; }
+    .scenic-card { width: 100%; max-width: 400px; }
+    .scenic-img { height: 180px; }
+    .ticket-link { padding: 6px 14px; font-size: 13px; }
+    .modal-content { width: 90%; }
+}
