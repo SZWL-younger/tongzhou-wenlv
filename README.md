@@ -36,7 +36,7 @@ smart-travel/
 
 ## 线上访问地址
 （这里后面写上你自己的 GitHub Pages 地址）
-示例：https://你的名字.github.io/tongzhou-wenlv/
+示例：https://szwl-younger.github.io/tongzhou-wenlv/
 
 ## 负责人
 SZWL-younger
